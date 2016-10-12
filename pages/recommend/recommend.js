@@ -2,22 +2,12 @@ var subRequire = require('../../utils/subjectUtils.js');     //引入公用的js
 Page({
   data:{
     // text:"这是一个页面"
-
-    imgUrls: [
-      "/assets/img/001.jpg",
-      "/assets/img/002.jpg",
-      "/assets/img/003.jpg",
-    ],
-    indicatorDots: true,
-    autoplay: true,
-    interval: 3000,
-    duration: 1000,
     movies:[],   //定义一个数组 获取得到的信息
     hidden:false    //加载load显示 还是隐藏 默认出现
   },
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
-    this.loadMovie();
+    this.loadMovie();   //调用函数 加载数据
   },
   onReady:function(){
     // 页面渲染完成
@@ -35,7 +25,7 @@ Page({
   loadMovie:function(){
       var self = this;
       wx.request({
-          url:'https://api.douban.com/v2/movie/in_theaters',
+          url:'https://api.douban.com/v2/movie/top250',
           header:{
               "Content-Type":"application/json"
           },

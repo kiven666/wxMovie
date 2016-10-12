@@ -7,24 +7,14 @@
             </swiper-item>
         </block>
     </swiper>
-    <block wx:for="{{movies}}">
-        <view class='movie'>
-            <view class='pic'>
-                <image src='{{item.images.medium}}' mode='aspectFit'/>
-            </view>
-            <view class='movie-info'>
-                <view class='base-info'>
-                    <text>{{item.text}}</text>
-                </view>
-            </view>
-        </view>
-        <view class='hr'></view>
-    </block>
+
+    <import src='../template/template'/>
+    <template is='tpl' data='{{movies}}'/>
 </view>
 
 <view class="body-view">
   <loading hidden="{{hidden}}" bindchange="loadingChange">
     加载中...
   </loading>
-  <button type="default" bindtap="loadingTap">点击弹出loading</button>
+  <!--<button type="default" bindtap="loadingTap">点击弹出loading</button>-->
 </view>

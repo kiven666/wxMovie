@@ -1,6 +1,8 @@
 {
   "pages":[
-    "pages/movie/movie"
+    "pages/movie/movie",
+    "pages/recommend/recommend"
+    
   ],
   "tabBar": {
       "color":"#dddddd",
@@ -13,7 +15,7 @@
         "selectedIconPath":"assets/img/dy.png",
         "text": "热门影院"
       }, {
-        "pagePath": "pages/movie/movie",
+        "pagePath": "pages/recommend/recommend",
          "iconPath":"assets/img/tj-1.png",
         "selectedIconPath":"assets/img/tj.png",
         "text": "电影推荐"

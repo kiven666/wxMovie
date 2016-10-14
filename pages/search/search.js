@@ -1,23 +1,14 @@
-var subRequire = require('../../utils/subjectUtils.js');     //引入公用的js
+var subRequire = require('../../utils/subjectUtils.js');
 Page({
   data:{
     // text:"这是一个页面"
-
-    imgUrls: [
-      "/assets/img/001.jpg",
-      "/assets/img/002.jpg",
-      "/assets/img/003.jpg",
-    ],
-    indicatorDots: true,
-    autoplay: true,
-    interval: 3000,
-    duration: 1000,
+    inputVal:'',
     movies:[],   //定义一个数组 获取得到的信息
-    hidden:false    //加载load显示 还是隐藏 默认出现
+    hidden:true,   //点击搜索是出现 loading效果 默认隐藏
+    modalHidden:true    //弹出提示框  默认隐藏
   },
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
-    this.loadMovie();
   },
   onReady:function(){
     // 页面渲染完成
@@ -31,14 +22,19 @@ Page({
   onUnload:function(){
     // 页面关闭
   },
-  detail:function(e){
-    getApp().detail(e);
+  bindKeyInput:function(e){
+    //   console.log(e);
+      this.setData({inputVal:e.detail.value});
   },
-
-  loadMovie:function(){
+  search:function(){
       var self = this;
+      if(this.data.inputVal==''){   //如果没有输入内容 则弹出提示框 并return
+          this.setData({modalHidden:false});
+          return;
+      }
+      this.setData({hidden:false});
       wx.request({
-          url:'https://api.douban.com/v2/movie/in_theaters',
+          url:'https://api.douban.com/v2/movie/search?q='+ self.data.inputVal,
           header:{
               "Content-Type":"application/json"
           },
@@ -48,5 +44,11 @@ Page({
               self.setData({movies:subjects,hidden:true});
           }
       })
-  }
+  },
+  hideModal:function(){
+      this.setData({modalHidden:true});
+  },
+  detail:function(e){
+    getApp().detail(e);
+  },
 })

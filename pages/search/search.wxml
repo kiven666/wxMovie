@@ -1,0 +1,22 @@
+<view class='content'> 
+    <view class='search'> 
+        <input class='input' bindinput='bindKeyInput'/>
+        <button bindtap='search' hove-class='btnClick'>查询</button>
+    </view>
+    <text class='inputShow'>你要搜索：{{inputVal}}</text>
+    <!--加载内容-->
+    <view class='hr'></view>
+    <import src='../template/template'/>
+    <template is='tpl' data='{{movies}}'/>  
+
+  <view class="body-view">
+    <loading hidden="{{hidden}}" bindchange="loadingChange">
+      加载中...
+    </loading>
+    <!--<button type="default" bindtap="loadingTap">点击弹出loading</button>-->
+  </view>
+
+  <modal title="小提示" confirm-text="好的咯" hidden="{{modalHidden}}" no-cancel='true' bindconfirm="hideModal">
+    请输入需要查询的关键字，如:天下无贼
+  </modal>
+</view>

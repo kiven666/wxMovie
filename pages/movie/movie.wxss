@@ -1,3 +1,6 @@
+page{
+    height:100%;
+}
 .content{
     background-color:#3a3a3a;
     min-height:100%;

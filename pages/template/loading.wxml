@@ -1,0 +1,8 @@
+<template name='load'>
+    <view class="body-view"  wx:for="{{hidden}}">
+        <loading hidden="{{hidden}}" bindchange="loadingChange">
+            加载中...
+        </loading>
+        <button type="default" bindtap="loadingTap">点击弹出loading</button>
+    </view>
+</template>

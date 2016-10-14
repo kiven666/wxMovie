@@ -26,5 +26,12 @@ App({
   },
   globalData:{
     userInfo:null
+  },
+  detail:function(e){
+    // console.log(e);
+    // wx.setStorageSync('movieId',e.currentTarget.id);  //把当前点击的id存储到本地缓存中
+    wx.navigateTo({
+      url:'../detail/detail?id=' + e.currentTarget.id
+    })
   }
 })

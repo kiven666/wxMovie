@@ -21,6 +21,9 @@ Page({
   onUnload:function(){
     // 页面关闭
   },
+  detail:function(e){
+    getApp().detail(e);
+  },
 
   loadMovie:function(){
       var self = this;

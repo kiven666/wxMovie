@@ -1,6 +1,6 @@
 <template name='tpl'>     
     <block wx:for="{{movies}}">
-        <view class='movie'>
+        <view class='movie' bindtap='detail' id="{{item.id}}">
             <view class='pic'>
                 <image src='{{item.images.medium}}' mode='aspectFit'/>
             </view>
